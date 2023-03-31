@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "684981400758",
+    "project_id": "muvekkil-5f24a",
+    "storage_bucket": "muvekkil-5f24a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684981400758:android:e2c3d8223009e1f7e72217",
+        "android_client_info": {
+          "package_name": "com.muvekkil.v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684981400758-d7spekuqqf7shp1coti1gaeoeth30683.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLns2305msAy1n_J93Q7XgKYulIAA1xKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684981400758-8pcg4pspofdvvkkdqncu94c7263gulrd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "684981400758-9obvmmugecrekspql22inecs7c6puqt1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.muvekkil.muvekkil"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
