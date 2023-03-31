@@ -1,16 +1,11 @@
-# muvekkil_v2
+Müvekkil is a start-up founded by 4 university students studying at Koç University, the most prestigious university at Turkey.
 
-A new Flutter project.
+Müvekkil, a mobile application integrated with IOS and Android that aims to provide its users faster and cheaper legal consultancy than conventional law.
 
-## Getting Started
+Müvekkil uses Artificial Intelligence based Natural Language models in order to provide its users the most accurate legal consultancy.
 
-This project is a starting point for a Flutter application.
+Müvekkil uses a portion of Turkish legislation and law in force for its fine-tuning and embedding model. 
 
-A few resources to get you started if this is your first Flutter project:
+Müvekkil's ultimate goal is to use every single page of Turkish legislation to give its users most accurate guidance. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
