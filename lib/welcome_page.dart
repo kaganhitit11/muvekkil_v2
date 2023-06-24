@@ -18,13 +18,24 @@ class _WelcomePageState extends State<WelcomePage> {
       backgroundColor: myRed,
       body: Column(
         children: <Widget>[
-          const Expanded(
+          Expanded(
             flex: 1,
             child: Center(
-              child: Text(
-                'Müvekkil',
-                style: TextStyle(
-                    fontSize: 60, fontWeight: FontWeight.bold, color: Colors.white),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Müvekkil',
+                    style: TextStyle(
+                        fontSize: 60, fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Kendinizin müvekkili olun!',
+                    style: TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                ],
               ),
             ),
           ),

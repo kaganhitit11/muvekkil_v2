@@ -1,3 +1,5 @@
+import 'package:example/profile_page.dart';
+import 'package:example/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'chatCompletion.dart';
 import 'chat_message.dart';
@@ -38,6 +40,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //automaticallyImplyLeading: false,
         toolbarHeight: 80,
         title: const Padding(
           padding: EdgeInsets.all(8.0),
@@ -50,6 +53,7 @@ class _ChatPageState extends State<ChatPage> {
         backgroundColor: myRed,
         centerTitle: true,
       ),
+      drawer: _buildDrawer(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -114,6 +118,47 @@ class _ChatPageState extends State<ChatPage> {
       ),
     );
   }
+
+  Widget _buildDrawer() {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: myRed,
+            ),
+            child: const Center( // Wrap your text with a Center widget
+              child: Text('Menü', style: TextStyle(color: Colors.white, fontSize: 30,),
+                textAlign: TextAlign.center, // Optional, adds more guarantee for centering text
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.account_circle, color: Colors.black),
+            title: const Text('Profilim', style: TextStyle(fontSize: 20)),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.arrow_back_ios, color: Colors.black),
+            title: const Text('Çıkış Yap', style: TextStyle(fontSize: 20)),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const WelcomePage()),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
 
   Widget _buildSubmit() {
     return Visibility(
@@ -216,6 +261,21 @@ class _ChatPageState extends State<ChatPage> {
       curve: Curves.easeOut,
     );
   }
+
+  void _choiceAction(String choice) {
+    if (choice == 'Logout') {
+      // implement logout functionality here
+      print('Logout');
+    } else if (choice == 'Profile Page') {
+      // navigate to profile page
+      print('Navigate to Profile Page');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProfilePage()),
+      );
+    }
+  }
+
 }
 
 

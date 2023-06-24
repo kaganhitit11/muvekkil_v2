@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'auth_service.dart';
 import 'chat_page.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   @override
@@ -38,6 +37,19 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: myRed,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const WelcomePage()),
+            );
+          },
+        ),
+        backgroundColor: myRed,
+        elevation: 0, // removes the shadow under the AppBar
+      ),
       body: Column(
         children: <Widget>[
           const Expanded(
@@ -98,14 +110,13 @@ class _LoginPageState extends State<LoginPage> {
                               await _authService.signIn(
                                   email: _email, password: _password);
                               // ignore: use_build_context_synchronously
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatPage())
-                              );
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ChatPage()));
                             } on FirebaseAuthException catch (e) {
                               print(e.message);
                             }
                           }
                         },
-                          style: ElevatedButton.styleFrom(
+                        style: ElevatedButton.styleFrom(
                           backgroundColor: myRed,
                           minimumSize: const Size(double.infinity, 50),
                           shape: RoundedRectangleBorder(
@@ -114,6 +125,34 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         child: const Text('Giriş Yap', style: TextStyle(fontSize: 18, color: Colors.white)),
                       ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () async {
+                          try {
+                            await _authService.signInWithGoogle();
+                            // Navigate to ChatPage on successful sign in
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ChatPage()));
+                          } on FirebaseAuthException catch (e) {
+                            print(e.message);
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          minimumSize: const Size(double.infinity, 50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/images/google_logo.png', height: 24.0), // Replace this with your asset's path
+                            const SizedBox(width: 10),
+                            const Text('Google ile Giriş Yap', style: TextStyle(fontSize: 18, color: Colors.black)),
+                          ],
+                        ),
+                      ),
+
                     ],
                   ),
                 ),
@@ -122,17 +161,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: myRed,
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const WelcomePage()),
-          );
-        },
-        child: const Icon(Icons.arrow_back, color: Colors.white),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }
 }
